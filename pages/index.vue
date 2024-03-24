@@ -53,7 +53,7 @@ definePageMeta({
         <div class="min-w-full h-screen flex flex-1 justify-center items-center bg-custom-secondary">
             <Card class="w-[30%] h-[50%] bg-secondary flex flex-col justify-around rounded-xl">
                 <CardHeader class="text-center">
-                    <CardTitle>PassUwU</CardTitle>
+                    <CardTitle>Passtracker</CardTitle>
                     <!-- <CardDescription>Log-in your credentials</CardDescription> -->
                 </CardHeader>
                 <CardContent class="border border-primary mx-12 rounded-lg p-3">

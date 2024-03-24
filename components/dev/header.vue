@@ -20,7 +20,7 @@ const logout = async () => {
         <div class="container flex max-w-screen-2xl items-center h-14">
             <div class="mr-3 hidden md:flex">
                 <div class="mr-6 flex items-center space-x-2">
-                    <span class="font-bold text-2xl">PassUwU</span>
+                    <span class="font-bold text-2xl">Passtracker</span>
                 </div>
 
                 <nav class="flex items-center gap-6 text-sm">
