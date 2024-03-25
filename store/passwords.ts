@@ -53,6 +53,22 @@ const actions = {
             useResponseToast(err)
         }
 
+    },
+
+    async showPassword(pw_track_id: number): Promise<any> {
+        // const $this = usePwTrackStore();
+        try {
+            const { response, data } = await useFetchApi('/pw/track/show-password', {
+                method: 'POST',
+                data: { id: pw_track_id }
+            });
+
+            if (response.value.status == 200) {
+                return data.value
+            }
+        } catch (err) {
+            useResponseToast(err)
+        }
     }
 }
 

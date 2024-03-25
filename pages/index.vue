@@ -49,8 +49,8 @@ definePageMeta({
 <template>
     <div>
         <NuxtLoadingIndicator />
-        <Toaster richColors closeButton />
-        <div class="min-w-full h-screen flex flex-1 justify-center items-center bg-custom-secondary">
+        <Toaster richColors closeButton position="top-right"/>
+        <div class="min-w-full h-screen flex flex-1 justify-center items-center bg-primary">
             <Card class="w-[30%] h-[50%] bg-secondary flex flex-col justify-around rounded-xl">
                 <CardHeader class="text-center">
                     <CardTitle>Passtracker</CardTitle>

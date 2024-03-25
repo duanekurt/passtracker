@@ -1,18 +1,20 @@
+import type { AuthActions, AuthState } from "~/common/interfaces/auth";
+
 const state = () => ({
     isLoading: false,
     isExisting: false,
     isSubmitted: false,
     token: '',
-    user: {}
+    user: null
 })
 
 const getters = {}
 
 const actions = {
     async checkUserExist(email: string): Promise<any> {
-        const auth = useAuthStore()
+        const $this = useAuthStore()
         const loader = useLoadingIndicator();
-        auth.isLoading = true
+        $this.isLoading = true
         loader.start()
         try {
             const { data, response } = await useFetchApi(`/user/exist/${email}`, {
@@ -20,9 +22,9 @@ const actions = {
             });
 
             if (response.value.status == 200) {
-                auth.isSubmitted = true
+                $this.isSubmitted = true
                 if (data.value.data.exist) {
-                    auth.isExisting = true
+                    $this.isExisting = true
                 }
             }
 
@@ -32,16 +34,16 @@ const actions = {
             useResponseToast(err)
         }
 
-        auth.isLoading = false
+        $this.isLoading = false
         loader.finish();
 
     },
 
     async login(payload: any): Promise<any> {
-        const auth = useAuthStore()
+        const $this = useAuthStore()
         const loader = useLoadingIndicator();
         const router = useRouter();
-        auth.isLoading = true
+        $this.isLoading = true
         loader.start()
         try {
             const { data, response } = await useFetchApi('/auth/login', {
@@ -50,22 +52,22 @@ const actions = {
             })
 
             if (data.value.data?.token) {
-                auth.token = data.value.data.token.access_token
-                auth.user = data.value.data.user
+                $this.token = data.value.data.token.access_token
+                $this.user = data.value.data.user
                 router.push('/dashboard')
             }
 
         } catch (err) {
             useResponseToast(err)
         }
-        auth.isLoading = false
+        $this.isLoading = false
         loader.finish();
     },
 
     async register(payload: any): Promise<any> {
-        const auth = useAuthStore()
+        const $this = useAuthStore()
         const loader = useLoadingIndicator();
-        auth.isLoading = true
+        $this.isLoading = true
         loader.start()
         try {
             const { data, response } = await useFetchApi('/auth/register', {
@@ -74,39 +76,54 @@ const actions = {
             })
 
             if (data.value.data?.token) {
-                auth.token = data.value.data.token.access_token
-                auth.user = data.value.data.user
+                $this.token = data.value.data.token.access_token
+                $this.user = data.value.data.user
             }
 
             console.log(response)
         } catch (err) {
             useResponseToast(err)
         }
-        auth.isLoading = false
+        $this.isLoading = false
         loader.finish();
 
     },
 
     async logout(): Promise<any> {
-        const auth = useAuthStore()
+        const $this = useAuthStore()
         const loader = useLoadingIndicator();
         const router = useRouter();
 
-        auth.isLoading = true
+        $this.isLoading = true
         loader.start()
 
-        auth.token = ''
-        auth.user = {}
+        $this.token = ''
+        $this.user = null
 
-        auth.isLoading = false
+        $this.isLoading = false
         loader.finish()
 
         router.push('/')
+    },
+
+    async setMasterPassword(payload: any): Promise<any> {
+        const $this = useAuthStore()
+
+        try {
+            const { data, response } = await useFetchApi('/user/set-master-password', {
+                method: 'PUT',
+                data: payload.value
+            })
+            $this.user!.master_password = data.value.data.user.master_password
+            useResponseToast(response)
+        } catch (err) {
+            useResponseToast(err)
+        }
     }
 }
 
 
-export const useAuthStore = defineStore('authStore', {
+export const useAuthStore = defineStore<'authStore', AuthState, {}, AuthActions>('authStore', {
     state,
     getters,
     actions,

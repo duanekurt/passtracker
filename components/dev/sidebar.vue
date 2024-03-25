@@ -12,16 +12,16 @@ const router = useRouter();
                     </span>
                     <div class="grid grid-flow-row auto-rows-max mt-3">
                         <NuxtLink to="/dashboard"
-                            class="flex items-center rounded-lg border mx-3 px-3 py-1 hover:bg-custom-secondary-darkest hover:text-white text-muted-forgeround border-transparent text-xl font-extrabold">
+                            class="flex items-center rounded-lg border mx-3 px-3 py-1 hover:bg-primary hover:text-white text-muted-forgeround border-transparent text-xl font-extrabold">
                             My
                             Passwords
                         </NuxtLink>
                         <NuxtLink to="/dashboard/account-types"
-                            class="flex items-center rounded-lg border mx-3 px-3 py-1 hover:bg-custom-secondary-darkest hover:text-white text-muted-forgeround border-transparent text-xl font-extrabold">
+                            class="flex items-center rounded-lg border mx-3 px-3 py-1 hover:bg-primary hover:text-white text-muted-forgeround border-transparent text-xl font-extrabold">
                             Account Types
                         </NuxtLink>
                         <NuxtLink to="/dashboard/tags"
-                            class="flex items-center rounded-lg border mx-3 px-3 py-1 hover:bg-custom-secondary-darkest hover:text-white text-muted-forgeround border-transparent text-xl font-extrabold">
+                            class="flex items-center rounded-lg border mx-3 px-3 py-1 hover:bg-primary hover:text-white text-muted-forgeround border-transparent text-xl font-extrabold">
                             Tags
                         </NuxtLink>
                     </div>

@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     }
   },
   modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt', '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt'],
-  ssr: false,
+  ssr: false, // change to true on production
   shadcn: {
     /**
      * Prefix for all the imported component

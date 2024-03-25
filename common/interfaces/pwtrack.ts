@@ -33,4 +33,5 @@ export interface PwTrackState {
 export interface PwTrackActions {
     getPasswordTracks(page?: number): Promise<any>
     createPasswordTrack(payload: any): Promise<any>
+    showPassword(pw_track_id: number): Promise<any>
 }

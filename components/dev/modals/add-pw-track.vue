@@ -56,7 +56,7 @@ const submit = handleSubmit((values) => {
 <template>
     <Sheet :open="opened">
         <SheetTrigger as-child>
-            <Button size="icon" variant="outline" class="rounded-3xl bg-custom-secondary text-primary">
+            <Button size="icon" variant="outline" class="rounded-3xl bg-primary text-white">
                 <Plus class="w-4 h-4" />
             </Button>
         </SheetTrigger>
