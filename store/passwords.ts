@@ -43,9 +43,10 @@ const actions = {
             });
 
             if ($this.pw_tracks.data !== null && $this.pw_tracks.data.length > 0) {
-                $this.getPasswordTracks()
+                await $this.getPasswordTracks()
             } else {
                 $this.pw_tracks.data = data.value.data
+                await $this.getPasswordTracks()
             }
             useResponseToast(response)
             return response.value

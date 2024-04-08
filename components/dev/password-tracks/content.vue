@@ -7,10 +7,8 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
-import { toast } from 'vue-sonner'
 import { Button } from '@/components/ui/button'
-import { Eye, Loader2 } from 'lucide-vue-next';
-import { Badge } from '@/components/ui/badge'
+import { Eye } from 'lucide-vue-next';
 import { usePwTrackStore } from '~/store/passwords';
 
 const pwtrack = usePwTrackStore();
@@ -61,11 +59,9 @@ const showPassword = async (pw_track_id: number) => {
                 </div>
             </CardContent>
             <hr>
-            <CardFooter class="justify-around py-3 items-center">
-                <!-- <Badge>Entertainment</Badge>
-                <Badge>Entertainment</Badge>
-                <Badge>Entertainment</Badge>
-                <Badge>Entertainment</Badge> -->
+            <CardFooter class="justify-between py-3 items-baselibe">
+                <DevTagsShow/>
+                <DevPasswordTracksOptions/>
             </CardFooter>
         </Card>
     </div>

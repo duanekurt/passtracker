@@ -47,6 +47,7 @@ const tag_colors = [
 const tag_name = ref();
 const tag_color = ref();
 const tagStore = useTagStore();
+
 </script>
 
 <template>

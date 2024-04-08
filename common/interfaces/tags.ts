@@ -2,9 +2,9 @@ export interface TagState {
     isLoading: boolean
     tags: Tag[] | null
 }
-export interface TagGetters {}
+export interface TagGetters { }
 export interface TagActions {
-    createTag(): Promise<void>
+    createTag(payload: any): Promise<void>
     getTags(): Promise<void>
 }
 export interface Tag {

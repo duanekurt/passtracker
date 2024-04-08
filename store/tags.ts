@@ -6,11 +6,24 @@ const state = () => ({
 })
 const getters = {}
 const actions = {
-    async createTag() {
-        const tagStore = useTagStore()
-        tagStore.isLoading = true
+    async createTag(payload: any) {
+        const $this = useTagStore()
+        $this.isLoading = true
+
+        const { data, response } = await useFetchApi('/tag/create', {
+            method: 'POST',
+            data: payload
+        })
     },
-    async getTags() { }
+    async getTags() {
+        const $this = useTagStore()
+
+        const { data, response } = await useFetchApi('/tag/all', {
+            method: 'GET',
+        })
+
+        console.log(response.value)
+    }
 }
 
 
